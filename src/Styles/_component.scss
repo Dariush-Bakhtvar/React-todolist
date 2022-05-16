@@ -1,0 +1,10 @@
+@import "./mixin";
+@import "variable";
+.container {
+    width: 800px;
+    height: 520px;
+    background: $white-color;
+    transform: translateY(10%);
+    box-shadow: 0 14px 28px rgba($color: #000000, $alpha: 0.28), 0 10px 10px rgba($color: #000000, $alpha: 0.22);
+    border-radius: 10px;
+}

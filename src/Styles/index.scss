@@ -1,0 +1,39 @@
+@import "./mixin";
+@import "variable";
+:root {
+    font-size: 62.5%; //1rem==10px
+    direction: rtl;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: $font-family;
+    font-size: 1.6rem;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include Flex(center, center);
+    flex-direction: column;
+    background: $bg-color;
+}

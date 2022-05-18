@@ -3,3 +3,17 @@
     justify-content: $justify;
     align-items: $align;
 }
+
+%Befor_After_container {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+@mixin Transition($proprety) {
+    transition: $proprety $transition;
+}

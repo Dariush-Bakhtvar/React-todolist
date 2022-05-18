@@ -1,10 +1,41 @@
 @import "./mixin";
-@import "variable";
+@import "./variable";
 .container {
-    width: 800px;
+    width: 55.56%;
     height: 520px;
     background: $white-color;
     transform: translateY(10%);
-    box-shadow: 0 14px 28px rgba($color: #000000, $alpha: 0.28), 0 10px 10px rgba($color: #000000, $alpha: 0.22);
+    /* box-shadow: 0 14px 28px rgba($color: #000000, $alpha: 0.28), 0 10px 10px rgba($color: #000000, $alpha: 0.22); */
+    box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 4px 8px rgba(16, 22, 26, 0.2), 0 18px 46px 6px rgba(16, 22, 26, 0.2);
     border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    &:before {
+        @extend %Befor_After_container;
+        left: 0;
+        background-image: url(../assets/left-buble.svg);
+        background-position: -10px -10px;
+    }
+    &::after {
+        @extend %Befor_After_container;
+        right: 0;
+        background-image: url(../assets/right-buble.svg);
+        background-position: 100% -10px;
+    }
+}
+
+@media screen and (min-width: $breakpoint-mobile-min) and (max-width: $breakpoint-mobile-max) {
+    .container {
+        width: 94%;
+        transform: none;
+        margin: 10px 0;
+        &:before,
+        &::after {
+            /* position: static;
+            background: none;
+            height: auto;
+            width: auto; */
+            display: none;
+        }
+    }
 }

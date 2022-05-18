@@ -37,3 +37,9 @@ body {
     flex-direction: column;
     background: $bg-color;
 }
+
+#root {
+    width: 100%;
+    height: 100%;
+    @include Flex(center, center);
+}

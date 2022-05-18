@@ -1,0 +1,180 @@
+@import "../../Styles/mixin";
+@import "../../Styles/variable";
+.overlayWrapper {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    overflow: hidden;
+    transform: translateX(0);
+    transition: transform $transition;
+    z-index: 1;
+    &__active {
+        transform: translateX(-100%);
+    }
+}
+
+.overlay {
+    height: 100%;
+    width: 200%;
+    position: relative;
+    left: 0;
+    background: linear-gradient(90deg, $primary-color, $secondary-color) no-repeat 0 0;
+    background-size: cover;
+    color: rgba($color: $white-color, $alpha: 0.9);
+    transition: transform $transition;
+    &__active {
+        left: 100%;
+        transition: left $transition;
+    }
+    &__removeActive {
+        left: 0;
+        transition: left $transition;
+    }
+}
+
+.panel {
+    @include Flex(center, center);
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding: 0 40px;
+    position: absolute;
+    top: 0;
+    transform: translateX(0);
+    transition: transform $transition;
+    button {
+        all: unset;
+        width: 110px;
+        height: 30px;
+        background: transparent;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.21);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            background: rgba($color: $bg-color, $alpha: 0.2);
+        }
+    }
+}
+
+.rightPanel {
+    right: 0;
+    &__active {
+        transform: translateX(20%);
+    }
+    h2 {
+        margin: 1.5rem 0;
+    }
+    p {
+        text-align: justify;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: $bg-color;
+    }
+    /* button {
+        all: unset;
+        width: 110px;
+        height: 30px;
+        background: transparent;
+        border-radius: 6px;
+        border: 1px solid $white-color;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            background: rgba($color: $white-color, $alpha: 0.2);
+        }
+    } */
+}
+
+.leftPanel {
+    left: 0;
+    transform: translateX(-20%);
+    &__active {
+        transform: translateX(0);
+    }
+}
+
+.ContentPanel {
+    width: 90%;
+    height: 80%;
+    @include Flex(center, center);
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 22px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(1.9px); */
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(1.9px);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    padding: 0 8px;
+}
+
+@media screen and (min-width: $breakpoint-mobile-min) and (max-width: $breakpoint-mobile-max) {
+    .overlayWrapper {
+        width: 100%;
+        height: 50%;
+        left: 0;
+        top: 0;
+        transform: translateY(0);
+        transition: transform $transition;
+        z-index: 1;
+        &__active {
+            transform: translateY(100%);
+        }
+    }
+    .overlay {
+        height: 200%;
+        width: 100%;
+        position: relative;
+        top: 0;
+        background: linear-gradient(1deg, $primary-color, $secondary-color) no-repeat 0 0;
+        background-size: cover;
+        transition: transform $transition;
+        &__active {
+            left: 0;
+            height: 100%;
+            transition: height $transition;
+        }
+        &__removeActive {
+            height: 200%;
+            transition: height $transition;
+        }
+    }
+    .panel {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        padding: 0;
+    }
+    .rightPanel {
+        top: -10px;
+        transform: translateY(0);
+        &__active {
+            transform: translateY(-100%);
+            transition: transform $transition;
+        }
+    }
+    .leftPanel {
+        bottom: 0;
+        transform: translateY(100%);
+        &__active {
+            transform: translateY(0);
+        }
+    }
+    .ContentPanel {
+        width: 90%;
+        height: 80%;
+        font-size: 1.3rem;
+        h2 {
+            font-size: 2rem;
+        }
+        P {
+            text-align: justify;
+            font-size: inherit;
+            line-height: 1.4;
+        }
+    }
+}

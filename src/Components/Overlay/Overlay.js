@@ -1,5 +1,7 @@
 import WidthActive from "../HOC/widthIsActive";
 import styles from "./overlay.module.scss";
+import { GoBookmark } from "react-icons/go";
+import { VscCircleFilled } from "react-icons/vsc";
 const Overlay = ({ isActive, activeToggle }) => {
 	return (
 		<section
@@ -19,7 +21,7 @@ const Overlay = ({ isActive, activeToggle }) => {
 				>
 					<div className={styles.ContentPanel}>
 						<h2>سلام !</h2>
-						<p>برنامه امروزت چیه؟بریم زمان و کار هارو مدیریت کنیم؟!</p>
+						<p>برنامه ی امروزت چیه؟ بریم کار هارو زمانبندی کنیم؟!</p>
 						<button onClick={activeToggle}>بزن بریم</button>
 					</div>
 				</div>
@@ -29,8 +31,37 @@ const Overlay = ({ isActive, activeToggle }) => {
 						isActive && styles.leftPanel__active
 					}`}
 				>
-					<h2>سلام</h2>
-					<button onClick={activeToggle}>مشاهده کارها</button>
+					<div className={styles.StatusPanel}>
+						<h2>شرح وظایف</h2>
+						<ul className={styles.StatusTasksCount}>
+							<li>
+								<GoBookmark className={styles.IconeColor1} />
+								<span> همه کارها</span>
+								<span>0</span>
+							</li>
+							<li>
+								<VscCircleFilled className={styles.IconeColor2} />
+								<span>کسب و کار</span>
+								<span>0</span>
+							</li>
+							<li>
+								<VscCircleFilled className={styles.IconeColor3} />
+								<span>شخصی</span>
+								<span>0</span>
+							</li>
+							<li>
+								<VscCircleFilled className={styles.IconeColor4} />
+								<span>خانوادگی</span>
+								<span>0</span>
+							</li>
+							<li>
+								<VscCircleFilled className={styles.IconeColor5} />
+								<span>کاری</span>
+								<span>0</span>
+							</li>
+						</ul>
+						<button onClick={activeToggle}>وظایف</button>
+					</div>
 				</div>
 			</div>
 		</section>

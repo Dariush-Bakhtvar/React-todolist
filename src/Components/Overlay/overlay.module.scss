@@ -9,7 +9,7 @@
     overflow: hidden;
     transform: translateX(0);
     transition: transform $transition;
-    z-index: 1;
+    z-index: 10;
     &__active {
         transform: translateX(-100%);
     }

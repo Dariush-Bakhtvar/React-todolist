@@ -1,4 +1,4 @@
-import WidthActive from "../HOC/widthIsActive";
+// import WidthActive from "../HOC/widthIsActive";
 import styles from "./overlay.module.scss";
 import { GoBookmark } from "react-icons/go";
 import { VscCircleFilled } from "react-icons/vsc";
@@ -68,4 +68,5 @@ const Overlay = ({ isActive, activeToggle }) => {
 	);
 };
 
-export default WidthActive(Overlay);
+// export default WidthActive(Overlay);
+export default Overlay;

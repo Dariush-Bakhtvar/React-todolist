@@ -1,14 +1,20 @@
-// import WidthActive from "../HOC/widthIsActive";
-import styles from "./Laout.module.scss";
+import DropDown from "../dropDown/DropDown";
+import styles from "./Layout.module.scss";
 const LeftLayout = ({ isActive }) => {
-	console.log(isActive);
 	return (
 		<section
 			className={`${styles.ContentLayout} ${styles.leftlayout} ${
 				isActive && styles.leftlayout__activeLeft
 			}`}
 		>
-			<div className={styles.Header}>متن آزمایشی برای تست برنامه</div>
+			<div className={styles.myTasksContainer}>
+				<div className={styles.myTaskHeader}>
+					<div className={styles.HeaderContent}>
+						<h1>کارهای من</h1>
+						<DropDown />
+					</div>
+				</div>
+			</div>
 		</section>
 	);
 };

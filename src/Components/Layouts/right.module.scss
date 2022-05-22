@@ -1,0 +1,7 @@
+.createTask {
+    width: 50%;
+    height: 100%;
+    background: dodgerblue;
+    @include Flex(space-around, center);
+    flex-direction: column;
+}

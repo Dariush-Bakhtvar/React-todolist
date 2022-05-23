@@ -1,4 +1,5 @@
 import SelectBox from "../select/Select";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import styles from "./Layout.module.scss";
 
 const RightLayout = ({ isActive }) => {
@@ -22,8 +23,15 @@ const RightLayout = ({ isActive }) => {
 					<input type="text" placeholder="چه کاری رو باید انجام بدم؟ *" />
 					<input type="text" placeholder="کجا؟ *" />
 					<div className={styles.todoTimes}>
-						<input type="datetime-local" placeholder="چه موقع؟ *" />
-						<div className={styles.toggleBtn}></div>
+						<input
+							type="datetime-local"
+							placeholder="چه موقع؟ *"
+							className={styles.data}
+						/>
+						<div className={styles.switch}>
+							<ToggleSwitch />
+							هر روز
+						</div>
 					</div>
 					<span>* فیلد های ضروری</span>
 					<button>ایجاد</button>

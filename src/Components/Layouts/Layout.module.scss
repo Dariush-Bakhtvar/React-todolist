@@ -122,11 +122,17 @@
 .todoTimes {
     width: 80%;
     @include Flex(space-between, center);
-    input {
+    .data {
         width: 60%;
         text-align: center;
         line-height: 2.5;
     }
+}
+
+.switch {
+    width: 150px;
+    @include Flex(space-between, center);
+    font-size: 1.2rem;
 }
 
 

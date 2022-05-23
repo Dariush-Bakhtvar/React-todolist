@@ -1,0 +1,42 @@
+@import "../../Styles/variable";
+@import "../../Styles/mixin";
+.switch_checkbox {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    &:checked {
+        .switch_Button {
+            left: calc(100% - 2px);
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.switch_label {
+    @include Flex(space-between, center);
+    cursor: pointer;
+    width: 30px;
+    height: 15px;
+    background: #e8e8e8;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color 0.2s;
+    &:active {
+        .switch_Button {
+            background: tomato;
+        }
+    }
+}
+
+.switch_Button {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 45px;
+    transition: 0.2s;
+    background: #fff;
+    box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}

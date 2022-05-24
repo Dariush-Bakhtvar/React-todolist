@@ -33,8 +33,8 @@ const RightLayout = ({ isActive }) => {
 							هر روز
 						</div>
 					</div>
-					<span>* فیلد های ضروری</span>
-					<button>ایجاد</button>
+					<span className={styles.importfilds}>فیلدهای ضروری *</span>
+					<button className={styles.createTaskBtn}>ایجاد</button>
 				</form>
 			</div>
 		</section>

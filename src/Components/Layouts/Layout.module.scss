@@ -25,7 +25,7 @@
     z-index: 1;
     &__activeLeft {
         opacity: 0;
-        z-index: 5;
+        z-index: 0;
         transform: translateX(50%);
         animation: show 0.6s;
     }
@@ -99,7 +99,7 @@
 .newTaskFrom {
     width: inherit;
     height: 60%;
-    @include Flex(space-around, center);
+    @include Flex(center, center);
     flex-direction: column;
     input {
         all: unset;
@@ -130,9 +130,29 @@
 }
 
 .switch {
-    width: 150px;
-    @include Flex(space-between, center);
+    width: 80px;
+    @include Flex(space-around, center);
+    flex-direction: row-reverse;
     font-size: 1.2rem;
+}
+
+.importfilds {
+    display: block;
+    width: 80%;
+    font-size: 1.1rem;
+    color: #a5b1c2;
+}
+
+.createTaskBtn {
+    width: 80%;
+    height: 40px;
+    background: #f66360;
+    color: $white-color;
+    border: 2px solid $white-color;
+    font-size: 1.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 

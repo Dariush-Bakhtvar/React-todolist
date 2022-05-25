@@ -101,6 +101,7 @@
     height: 60%;
     @include Flex(center, center);
     flex-direction: column;
+    position: relative;
     input {
         all: unset;
         width: 80%;
@@ -146,13 +147,18 @@
 .createTaskBtn {
     width: 80%;
     height: 40px;
-    background: #f66360;
+    /* background: #f66360; */
+    background: #b04b63;
     color: $white-color;
     border: 2px solid $white-color;
     font-size: 1.8rem;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.todoIcons {
+    width: inherit;
 }
 
 

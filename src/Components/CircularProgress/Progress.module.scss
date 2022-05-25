@@ -1,0 +1,56 @@
+/* $porcent-vue: 2; */
+
+$porcent-vue: 100;
+$color-vue: hsl(342, 56%, 46%);
+.progressbar {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin: 1em;
+    transform: rotate(-90deg);
+    top: -93px;
+    z-index: 4;
+    &__svg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        &_circle {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke-width: 4px;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            stroke: hsl(327, 59%, 39%);
+            stroke-linecap: round;
+            transform: translate(16px, 37px);
+        }
+    }
+}
+
+@function strokeDashoffset($num) {
+    @return 440 - (440 * $num) / 100;
+}
+
+.circle_motion {
+    animation: anim_circle-vue 1s ease-in-out forwards;
+}
+
+@keyframes anim_circle-vue {
+    to {
+        stroke-dashoffset: strokeDashoffset($porcent-vue);
+    }
+}
+
+.circle_test {
+    animation: test 1s ease-in-out forwards;
+}
+
+@keyframes test {
+    from {
+        stroke-dashoffset: strokeDashoffset(100);
+    }
+    to {
+        stroke-dashoffset: strokeDashoffset(0);
+    }
+}

@@ -1,6 +1,8 @@
 import SelectBox from "../select/Select";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import DropDownIcons from "../DropDownIcons/DropDownIcons";
 import styles from "./Layout.module.scss";
+import CircularProgress from "../CircularProgress/CircularProgress";
 
 const RightLayout = ({ isActive }) => {
 	return (
@@ -18,7 +20,8 @@ const RightLayout = ({ isActive }) => {
 					</div>
 				</div>
 				<form action="#" className={styles.newTaskFrom}>
-					<div className={styles.todoIcons}></div>
+					<CircularProgress cx={50} cy={50} r={35} />
+					<DropDownIcons />
 					<SelectBox />
 					<input type="text" placeholder="چه کاری رو باید انجام بدم؟ *" />
 					<input type="text" placeholder="کجا؟ *" />

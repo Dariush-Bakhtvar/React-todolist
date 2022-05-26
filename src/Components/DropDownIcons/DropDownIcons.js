@@ -1,8 +1,9 @@
 import { useState } from "react";
-// import CircularProgress from "../CircularProgress/CircularProgress";
+import CircularProgress from "../CircularProgress/CircularProgress";
 import styles from "./Icons.module.scss";
 import DynamicIcon from "../DymanicIcons/DynamicIcon";
 import { FaPlus } from "react-icons/fa";
+import widthIsActive from "../HOC/widthIsActive";
 const Icons = [
 	"FaRocketchat",
 	"FaHighlighter",
@@ -26,28 +27,33 @@ const Icons = [
 	"FaDollarSign",
 	// "",
 ];
-const DropDownIcons = ({ props }) => {
+const DropDownIcons = ({ isActive, activeToggle }) => {
 	const [icon, setIcon] = useState("");
-	const [active, setActive] = useState(false);
+	const [hover, setHover] = useState(false);
+
 	return (
 		<section className={styles.IconContaier}>
-			{/* <CircularProgress cx={50} cy={50} r={35} /> */}
+			<CircularProgress cx={50} cy={50} r={35} isActive={isActive} />
 			<div
 				className={`${styles.IconsButton} ${
 					icon.length > 0 && styles.IconsButton_active
 				}`}
-				onClick={() => setActive(!active)}
+				onClick={() => setHover(!hover)}
 			>
 				{icon === "" ? <FaPlus /> : <DynamicIcon name={`${icon}`} />}
 			</div>
-			{active && (
+			{hover && (
 				<ul className={styles.IconsMenu}>
 					{Icons.map((item, index) => {
 						return (
 							<li
 								key={index}
 								className={styles.IconBtn}
-								onClick={() => setIcon(item)}
+								onClick={() => {
+									setIcon(item);
+									activeToggle();
+									setHover(false);
+								}}
 							>
 								<DynamicIcon name={item} />
 							</li>
@@ -59,4 +65,4 @@ const DropDownIcons = ({ props }) => {
 	);
 };
 
-export default DropDownIcons;
+export default widthIsActive(DropDownIcons);

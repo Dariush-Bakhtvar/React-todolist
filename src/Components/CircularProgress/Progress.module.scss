@@ -4,11 +4,13 @@ $porcent-vue: 100;
 $color-vue: hsl(342, 56%, 46%);
 .progressbar {
     position: relative;
-    width: 170px;
-    height: 170px;
+    width: 104px;
+    height: 100px;
     margin: 1em;
     transform: rotate(-90deg);
     top: -93px;
+    top: -32px;
+    left: 30px;
     z-index: 4;
     &__svg {
         position: relative;
@@ -18,12 +20,12 @@ $color-vue: hsl(342, 56%, 46%);
             width: 100%;
             height: 100%;
             fill: none;
-            stroke-width: 4px;
+            stroke-width: 6px;
             stroke-dasharray: 440;
             stroke-dashoffset: 440;
             stroke: hsl(327, 59%, 39%);
             stroke-linecap: round;
-            transform: translate(16px, 37px);
+            transform: translate(1px, -2px);
         }
     }
 }
@@ -32,7 +34,7 @@ $color-vue: hsl(342, 56%, 46%);
     @return 440 - (440 * $num) / 100;
 }
 
-.circle_motion {
+.circle_forward {
     animation: anim_circle-vue 1s ease-in-out forwards;
 }
 
@@ -42,11 +44,11 @@ $color-vue: hsl(342, 56%, 46%);
     }
 }
 
-.circle_test {
-    animation: test 1s ease-in-out forwards;
+.circle_backward {
+    animation: backward 1s ease-in-out forwards;
 }
 
-@keyframes test {
+@keyframes backward {
     from {
         stroke-dashoffset: strokeDashoffset(100);
     }

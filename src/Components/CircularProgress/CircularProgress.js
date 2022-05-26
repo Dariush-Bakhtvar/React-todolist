@@ -1,6 +1,6 @@
 import styles from "./Progress.module.scss";
 // import styles from "./progress.scss";
-const CircularProgress = ({ cx, cy, r, Motion }) => {
+const CircularProgress = ({ cx, cy, r, isActive }) => {
 	return (
 		<div className={styles.progressbar}>
 			<svg className={styles.progressbar__svg}>
@@ -9,7 +9,7 @@ const CircularProgress = ({ cx, cy, r, Motion }) => {
 					cy={cy}
 					r={r}
 					className={`${styles.progressbar__svg_circle} ${
-						Motion && styles.circle__motion
+						isActive ? styles.circle_forward : styles.circle_backward
 					}`}
 				></circle>
 			</svg>

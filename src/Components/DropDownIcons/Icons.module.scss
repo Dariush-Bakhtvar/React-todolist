@@ -8,6 +8,10 @@
 }
 
 .IconsButton {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    z-index: 4;
     width: 70px;
     height: 70px;
     border-radius: 50%;

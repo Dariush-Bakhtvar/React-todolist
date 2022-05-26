@@ -2,6 +2,8 @@ import SelectBox from "../select/Select";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import DropDownIcons from "../DropDownIcons/DropDownIcons";
 import styles from "./Layout.module.scss";
+import DatePickers from "../DatePicker/DatePicker";
+
 const RightLayout = ({ isActive }) => {
 	return (
 		<section
@@ -23,11 +25,7 @@ const RightLayout = ({ isActive }) => {
 					<input type="text" placeholder="چه کاری رو باید انجام بدم؟ *" />
 					<input type="text" placeholder="کجا؟ *" />
 					<div className={styles.todoTimes}>
-						<input
-							type="datetime-local"
-							placeholder="چه موقع؟ *"
-							className={styles.data}
-						/>
+						<DatePickers />
 						<div className={styles.switch}>
 							<ToggleSwitch />
 							هر روز

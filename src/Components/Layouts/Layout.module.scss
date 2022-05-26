@@ -124,9 +124,10 @@
     width: 80%;
     @include Flex(space-between, center);
     .data {
-        width: 60%;
+        width: 100%;
         text-align: center;
-        line-height: 2.5;
+        font-family: inherit;
+        font-size: 1.2rem;
     }
 }
 

@@ -48,6 +48,7 @@ const SelectBox = () => {
 					baseUnit: 2,
 				},
 			})}
+			onChange={(e) => console.log(e)}
 		/>
 	);
 };

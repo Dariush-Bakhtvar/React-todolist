@@ -1,9 +1,9 @@
-import SelectBox from "../select/Select";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import DropDownIcons from "../DropDownIcons/DropDownIcons";
+// import SelectBox from "../select/Select";
+// import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+// import DropDownIcons from "../DropDownIcons/DropDownIcons";
+// import DatePickers from "../DatePicker/DatePicker";
 import styles from "./Layout.module.scss";
-import DatePickers from "../DatePicker/DatePicker";
-
+import CreateTaskFrom from "../CreateTaskForm/CreateTaskFrom";
 const RightLayout = ({ isActive }) => {
 	return (
 		<section
@@ -19,8 +19,8 @@ const RightLayout = ({ isActive }) => {
 						<span className={styles.todayBadge}>0</span>
 					</div>
 				</div>
-				<form action="#" className={styles.newTaskFrom}>
-					<DropDownIcons />
+				{/* <form action="#" className={styles.newTaskFrom}>
+					<DropDownIcons ref={testRef} />
 					<SelectBox />
 					<input type="text" placeholder="چه کاری رو باید انجام بدم؟ *" />
 					<input type="text" placeholder="کجا؟ *" />
@@ -33,7 +33,8 @@ const RightLayout = ({ isActive }) => {
 					</div>
 					<span className={styles.importfilds}>فیلدهای ضروری *</span>
 					<button className={styles.createTaskBtn}>ایجاد</button>
-				</form>
+				</form> */}
+				<CreateTaskFrom />
 			</div>
 		</section>
 	);

@@ -39,6 +39,7 @@ const DropDownIcons = ({ isActive, activeToggle }) => {
 					icon.length > 0 && styles.IconsButton_active
 				}`}
 				onClick={() => setHover(!hover)}
+				data-set={icon}
 			>
 				{icon === "" ? <FaPlus /> : <DynamicIcon name={`${icon}`} />}
 			</div>

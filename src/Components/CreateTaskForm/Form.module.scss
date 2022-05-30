@@ -107,6 +107,9 @@
 .todoTimes {
     width: 80%;
     @include Flex(space-between, center);
+    input {
+        width: 170px;
+    }
     .data {
         width: 100%;
         text-align: center;

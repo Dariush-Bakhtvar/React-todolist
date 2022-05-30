@@ -4,6 +4,7 @@
 // import DatePickers from "../DatePicker/DatePicker";
 import styles from "./Layout.module.scss";
 import CreateTaskFrom from "../CreateTaskForm/CreateTaskFrom";
+import RightHeader from "../RightHeader/RightHeader";
 const RightLayout = ({ isActive }) => {
 	return (
 		<section
@@ -12,13 +13,14 @@ const RightLayout = ({ isActive }) => {
 			}`}
 		>
 			<div className={styles.createTask}>
-				<div className={styles.createTaskHeader}>
+				<RightHeader />
+				{/* <div className={styles.createTaskHeader}>
 					<h1>کار جدید</h1>
 					<div className={styles.today}>
 						کارهای امروز
 						<span className={styles.todayBadge}>0</span>
 					</div>
-				</div>
+				</div> */}
 				{/* <form action="#" className={styles.newTaskFrom}>
 					<DropDownIcons ref={testRef} />
 					<SelectBox />

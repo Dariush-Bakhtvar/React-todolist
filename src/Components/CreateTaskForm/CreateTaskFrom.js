@@ -1,16 +1,18 @@
-import { useTodoAction } from "../Provider/Provider";
-import Select from "react-select";
 import { useState, useRef } from "react";
+import { useTodoAction } from "../Provider/Provider";
+import { FaPlus } from "react-icons/fa";
+import Select from "react-select";
 import widthIsActive from "../HOC/widthIsActive"; // HOC Toggle Active
 import CircularProgress from "../CircularProgress/CircularProgress";
 import DynamicIcon from "../DymanicIcons/DynamicIcon";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import { FaPlus } from "react-icons/fa";
 // DataPicker style
-import DatePicker from "react-multi-date-picker";
+import DatePicker, { DateObject } from "react-multi-date-picker";
 import TimePicker from "react-multi-date-picker/plugins/time_picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import transition from "react-element-popper/animations/transition";
+import opacity from "react-element-popper/animations/opacity";
 import "react-multi-date-picker/styles/colors/purple.css";
 import styles from "./Form.module.scss";
 const Icons = [
@@ -75,6 +77,13 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
 		// console.log(e.format("YYYY/MM/DD hh:mm:ss"));
 		// console.log(e.format("YYYY/MM/DD hh:mm:ss").toString().split(" "));
 		// console.log(inputRef.current.children[0].value, "value of inputRef");
+		// const toDay = new DateObject({
+		// 	calendar: persian,
+		// 	locale: persian_fa,
+		// 	format: "DD/MM/YYYY dddd",
+		// });
+		// console.log(toDay.day);
+		// console.log(toDay.format());
 	};
 	const formSbumitHandler = (e) => {
 		e.preventDefault();
@@ -84,12 +93,13 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
 		const WhatDo = DoInputRef.current.value;
 		const WhereDo = whereInputRef.current.value;
 		const WhenDo = date.format().toString().split(" ");
-
 		if (!WhatDo || !WhereDo) return;
 		Dispatch({ type: "createTask", taskType, WhatDo, WhereDo, WhenDo, icon });
 		DoInputRef.current.value = "";
 		whereInputRef.current.value = "";
 		setDate();
+		setIcon("");
+		activeToggle();
 	};
 	return (
 		<form
@@ -105,7 +115,6 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
 						icon.length > 0 && styles.IconsButton_active
 					}`}
 					onClick={() => setHover(!hover)}
-					data-set={icon}
 				>
 					{icon === "" ? <FaPlus /> : <DynamicIcon name={`${icon}`} />}
 				</div>
@@ -152,6 +161,7 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
 				})}
 				value={taskType}
 				onChange={(e) => setTaskType(e)}
+				placeholder="دسته بندی ..."
 			/>
 			<input
 				type="text"
@@ -161,8 +171,8 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
 			<input type="text" placeholder="کجا؟ *" ref={whereInputRef} />
 			<div className={styles.todoTimes}>
 				<DatePicker
-					className="purple"
-					format="HH:mm:ss YYYY/MM/DD"
+					className={`purple ${styles.DataPicker}`}
+					format="HH:mm:ss YYYY/MM/DD dddd"
 					plugins={[<TimePicker position="bottom" />]}
 					calendar={persian}
 					locale={persian_fa}
@@ -171,6 +181,7 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
 					onChange={GetPersionDate}
 					value={date}
 					ref={DateRef}
+					animations={[opacity(), transition({ from: 35, duration: 800 })]}
 				/>
 				<div className={styles.switch}>
 					<ToggleSwitch />

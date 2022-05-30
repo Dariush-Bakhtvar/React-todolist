@@ -3,6 +3,7 @@ const TodoContext = createContext();
 const TodoContextDisptcher = createContext();
 const initialState = [];
 const reducer = (state, action) => {
+	const cloneState = [...state];
 	switch (action.type) {
 		case "createTask":
 			const newTask = {
@@ -14,9 +15,7 @@ const reducer = (state, action) => {
 				TimeDo: action.WhenDo,
 				isCompelete: false,
 			};
-			console.log(newTask);
-			// return [...initialState, newTask];
-			break;
+			return [...cloneState, newTask];
 		default:
 			return state;
 	}

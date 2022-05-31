@@ -7,7 +7,7 @@ import CircularProgress from "../CircularProgress/CircularProgress";
 import DynamicIcon from "../DymanicIcons/DynamicIcon";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 // DataPicker style
-import DatePicker, { DateObject } from "react-multi-date-picker";
+import DatePicker from "react-multi-date-picker";
 import TimePicker from "react-multi-date-picker/plugins/time_picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
@@ -39,7 +39,7 @@ const Icons = [
 ];
 const Options = [
 	{ value: "Business", label: "کسب و کار", color: "#00c7c7" },
-	{ value: "Personla", label: "شخصی", color: "#f2d06c" },
+	{ value: "Personal", label: "شخصی", color: "#f2d06c" },
 	{ value: "Family", label: "خانوادگی", color: "#313a87" },
 	{ value: "Work", label: "کاری", color: "#ca89fc" },
 ];

@@ -1,0 +1,53 @@
+@import '../../Styles/mixin';
+@import '../../Styles/variable';
+.TaskWrapper {
+    width: 90%;
+    height: 90px;
+    background: $white-color;
+    @include Flex(flex-start, center);
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.13), 0 1px 3px rgba($color: #000000, $alpha: 0.26);
+    position: relative;
+    margin: 5px;
+}
+
+.TaskIcons {
+    width: 30%;
+    height: 100%;
+    @include Flex(center, center);
+    flex-direction: column;
+    position: relative;
+    &:first-child div {
+        top: 0px;
+        left: 0px;
+        & svg {
+            & circle {
+                stroke-width: 3px;
+            }
+        }
+    }
+}
+
+.iconWrapper {
+    position: absolute;
+    position: absolute;
+    transform: translate(-1%, 1%);
+    font-size: 2.4rem;
+    width: 74%;
+    height: 79%;
+    // background: dodgerblue;
+    border-radius: 50%;
+    @include Flex(center, center);
+    color: #A5AFB7;
+    border: 2px solid #A5AFB7;
+}
+
+.TaskContent {
+    width: 70%;
+}
+
+.test {
+    top: 10px;
+    left: 25px;
+    background-color: dodgerblue;
+}

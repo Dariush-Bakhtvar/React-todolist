@@ -9,6 +9,7 @@ const LeftLayout = ({ isActive }) => {
   const TaskRender = () => {
     if (TodoTask.length)
       return TodoTask.map(task => {
+        console.log(task.id);
         return <>
           <Tasks
             key={task.id}

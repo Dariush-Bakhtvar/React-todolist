@@ -2,27 +2,37 @@ import React, { useState } from 'react'
 import DynamicIcon from '../DymanicIcons/DynamicIcon'
 import CircularProgress from '../CircularProgress/CircularProgress'
 import styles from './Tasks.module.scss'
+import { GoTrashcan, GoCheck } from 'react-icons/go';
+import { RiArrowGoBackFill } from 'react-icons/ri'
 const Tasks = ({ Task }) => {
   const [hover, setHover] = useState(false)
+  const [active, setActive] = useState(false);
+  const isCompelete = (e) => {
+    setActive(!active)
+    console.log(e.reactInternalFiber.key);
+  }
+
   return (
-    <div className={styles.TaskWrapper}>
+    <div className={styles.TaskWrapper} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <div className={styles.TaskIcons}>
-        <CircularProgress cx={50} cy={50} r={35} isActive={true} />
-        <span className={styles.iconWrapper}>
+        <CircularProgress cx={50} cy={50} r={35} isActive={active} />
+        <span className={`${styles.iconWrapper} ${active && styles.compelete}`}>
           <DynamicIcon name={Task.icon} />
         </span>
       </div>
       <div className={styles.TaskContent}>
-        <div className={styles.Task}>
+        <div className={`${styles.Task} ${active && styles.Task_active}`}>
           <p>{Task.WhatDo}</p>
           <p>{Task.WhereDo}</p>
         </div>
-        <div className={styles.TaskDate} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-          {Task.TimeDo[0]}
-          {hover && <div>
-            <button>1</button>
-            <button>2</button>
-          </div>}
+        <div className={styles.TaskDate}>
+
+          {hover ? <div className={styles.MngTask}>
+            <button><GoTrashcan /></button>
+            <button onClick={isCompelete}>
+              {active ? <RiArrowGoBackFill /> : <GoCheck />}
+            </button>
+          </div> : Task.TimeDo[0]}
         </div>
       </div>
     </div>

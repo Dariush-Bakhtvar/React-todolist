@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import DynamicIcon from '../DymanicIcons/DynamicIcon'
 import CircularProgress from '../CircularProgress/CircularProgress'
 import styles from './Tasks.module.scss'
 import { GoTrashcan, GoCheck } from 'react-icons/go';
 import { RiArrowGoBackFill } from 'react-icons/ri'
-const Tasks = ({ Task }) => {
+const Tasks = ({ Task, isCompelete, remove }) => {
   const [hover, setHover] = useState(false)
   const [active, setActive] = useState(false);
-  const isCompelete = (e) => {
-    setActive(!active)
-    console.log(e.reactInternalFiber.key);
-  }
-
   return (
-    <div className={styles.TaskWrapper} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div className={styles.TaskWrapper} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} >
       <div className={styles.TaskIcons}>
         <CircularProgress cx={50} cy={50} r={35} isActive={active} />
         <span className={`${styles.iconWrapper} ${active && styles.compelete}`}>
@@ -28,8 +23,8 @@ const Tasks = ({ Task }) => {
         <div className={styles.TaskDate}>
 
           {hover ? <div className={styles.MngTask}>
-            <button><GoTrashcan /></button>
-            <button onClick={isCompelete}>
+            <button onClick={remove}><GoTrashcan /></button>
+            <button onClick={() => { isCompelete(); setActive(!active) }}>
               {active ? <RiArrowGoBackFill /> : <GoCheck />}
             </button>
           </div> : Task.TimeDo[0]}

@@ -1,19 +1,22 @@
 // import CircularProgress from "../CircularProgress/CircularProgress";
 import DropDown from "../dropDown/DropDown";
 import styles from "./Layout.module.scss";
-import { useTodo } from '../Provider/Provider'
+import { useTodo, useTodoAction } from '../Provider/Provider'
 import { GoCalendar } from 'react-icons/go'
 import Tasks from "../Tasks/Tasks";
 const LeftLayout = ({ isActive }) => {
   const TodoTask = useTodo();
+  const Dispatch = useTodoAction();
   const TaskRender = () => {
     if (TodoTask.length)
       return TodoTask.map(task => {
-        console.log(task.id);
+        // console.log(task.id);
         return <>
           <Tasks
             key={task.id}
             Task={task}
+            isCompelete={() => Dispatch({ type: 'compeleted', id: task.id })}
+            remove={() => Dispatch({ type: 'remove', id: task.id })}
           />
         </>
       })

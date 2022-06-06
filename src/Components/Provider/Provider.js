@@ -21,7 +21,6 @@ const reducer = (state, action) => {
     case 'compeleted':
       selectedTask.isCompelete = !selectedTask.isCompelete;
       cloneTasks[index] = selectedTask;
-      console.log(selectedTask);
       return cloneTasks;
     case 'remove':
       const RemoveTask = state.filter((task) => task.id !== action.id);

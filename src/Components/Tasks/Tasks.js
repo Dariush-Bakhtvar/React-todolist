@@ -27,7 +27,7 @@ const Tasks = ({ Task, isCompelete, remove }) => {
             <button onClick={() => { isCompelete(); setActive(!active) }}>
               {active ? <RiArrowGoBackFill /> : <GoCheck />}
             </button>
-          </div> : Task.TimeDo[0]}
+          </div> : Task.TimeDo[3]}
         </div>
       </div>
     </div>

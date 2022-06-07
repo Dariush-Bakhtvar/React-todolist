@@ -61,8 +61,8 @@ const colourStyles = {
   }),
 };
 const CreateTaskFrom = ({ isActive, activeToggle }) => {
-  const [icon, setIcon] = useState("");
   const [hover, setHover] = useState(false);
+  const [icon, setIcon] = useState("");
   const [date, setDate] = useState();
   const [taskType, setTaskType] = useState("");
   const Dispatch = useTodoAction();
@@ -83,7 +83,7 @@ const CreateTaskFrom = ({ isActive, activeToggle }) => {
     // });
     // console.log(toDay.day);
     // console.log(toDay.format());
-    console.log(e?.format?.("D MMMM YYYY"));
+    // console.log(e?.format?.("D MMMM YYYY"));
   };
   const formSbumitHandler = (e) => {
     e.preventDefault();

@@ -3,22 +3,22 @@ import DropDown from "../dropDown/DropDown";
 import styles from "./Layout.module.scss";
 import { useTodo, useTodoAction } from '../Provider/Provider'
 import { GoCalendar } from 'react-icons/go'
-import Tasks from "../Tasks/Tasks";
+import Tasks from "../Tasks/Tasks"
+import { Fragment } from 'react'
 const LeftLayout = ({ isActive }) => {
   const TodoTask = useTodo();
   const Dispatch = useTodoAction();
   const TaskRender = () => {
     if (TodoTask.length)
-      return TodoTask.map(task => {
-        // console.log(task.id);
-        return <>
+      return TodoTask.map((task, index) => {
+        return <Fragment key={index}>
           <Tasks
-            key={task.id}
             Task={task}
             isCompelete={() => Dispatch({ type: 'compeleted', id: task.id })}
             remove={() => Dispatch({ type: 'remove', id: task.id })}
+            key={task.id}
           />
-        </>
+        </Fragment>
       })
     return <div className={styles.noTask}>
       <GoCalendar />

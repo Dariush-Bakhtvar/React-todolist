@@ -9,8 +9,25 @@ const DropDown = () => {
   const TodoTask = useTodo();
   const toggleHandler = () => {
     setToggle(!toggle);
-    console.log(TodoTask.filter((item, index) => TodoTask.indexOf(item) !== index).length);
   };
+  // for (const key in TodoTask) {
+  //   if (Object.hasOwnProperty.call(TodoTask, key)) {
+  //     const element = TodoTask[key];
+  //     for (const i in element) {
+  //       if (i === "TimeDo") {
+  //         // console.log(element[i])
+  //         const test = element[i].filter(item => console.log(item));
+  //       }
+  //     }
+  //   }
+  // }
+  const test = TodoTask.map((item, index) => {
+    return item.TimeDo.filter(i => i[index]);
+  });
+  test.forEach((i) => {
+    return i.forEach(item => { console.log(item) });
+  });
+  console.log(test);
   return (
     <div className={styles.dropDownTask}>
       <div className={styles.dropdownBtn} onClick={toggleHandler}>
@@ -29,10 +46,13 @@ const DropDown = () => {
             <p>آینده</p>
             <ul className={styles.upComingMenu}>
               {TodoTask.map(item => {
+
                 return <li key={item.id}>
                   {`${item.TimeDo[0]}  ${item.TimeDo[1]}`}
                   {/* <span>{TodoTask.filter(i => i.TimeDo[0] === i.TimeDo[0] && i.TimeDo[1] === i.TimeDo[1])}</span> */}
+                  {/* <span>{ }</span> */}
                 </li>
+
               })}
             </ul>
           </li>
